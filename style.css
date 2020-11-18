@@ -41,6 +41,14 @@
   border-radius: 50%;
 }
 
+.play {
+  margin: 160px 0 0 10px;
+}
+
+.replay {
+  margin-bottom: 30px;
+}
+
 .sound-picker button:nth-child(1) {
   background: #4972a1;
 }
