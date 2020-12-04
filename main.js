@@ -16,21 +16,21 @@ play.addEventListener("click", () => checkPlaying(song));
 replay.addEventListener("click", () => restartSong(song));
 
 sounds.forEach(sound => {
-  sound.addEventListener("click", function() {
-    song.src = this.getAttribute("data-sound");
-    video.src = this.getAttribute("data-video");
+  sound.addEventListener("click", function() {    
+    song.src = sound.getAttribute("data-sound");
+    video.src = sound.getAttribute("data-video");       
     checkPlaying(song);
   });
 });    
  
-const restartSong = song => {
+const restartSong = song => {sound
     let currentTime = song.currentTime;    
     song.currentTime = 0;    
 };
 
 timeSelect.forEach (option => {
   option.addEventListener("click", function() {
-    fakeDuration = this.getAttribute("data-time");
+    fakeDuration = option.getAttribute("data-time");
     timeDisplay.textContent = `${Math.floor(fakeDuration / 60)} : ${Math.floor(fakeDuration % 60)}`;
   });
 });
