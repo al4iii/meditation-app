@@ -22,11 +22,8 @@ sounds.forEach(sound => {
     checkPlaying(song);
   });
 });    
- 
-const restartSong = song => {sound
-    let currentTime = song.currentTime;    
-    song.currentTime = 0;    
-};
+
+const restartSong = song => song.currentTime = 0; 
 
 timeSelect.forEach (option => {
   option.addEventListener("click", function() {
