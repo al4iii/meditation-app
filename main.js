@@ -12,27 +12,24 @@ outline.style.strokeDashoffset = outlineLength;
 outline.style.strokeDasharray = outlineLength;
 timeDisplay.textContent = `${Math.floor(fakeDuration / 60)} : ${Math.floor(fakeDuration % 60)}`;
 
-play.addEventListener("click", () => checkPlaying(song));
-replay.addEventListener("click", () => restartSong(song));
-
-sounds.forEach(sound => {
-  sound.addEventListener("click", function() {    
+sounds.forEach((sound) => {
+  sound.addEventListener("click", () => {
     song.src = sound.getAttribute("data-sound");
-    video.src = sound.getAttribute("data-video");       
+    video.src = sound.getAttribute("data-video");
     checkPlaying(song);
   });
 });    
 
 const restartSong = song => song.currentTime = 0; 
 
-timeSelect.forEach (option => {
-  option.addEventListener("click", function() {
+timeSelect.forEach((option) => {
+  option.addEventListener("click", () => {
     fakeDuration = option.getAttribute("data-time");
     timeDisplay.textContent = `${Math.floor(fakeDuration / 60)} : ${Math.floor(fakeDuration % 60)}`;
   });
 });
 
-const checkPlaying = song => {
+const checkPlaying = (song) => {
   if (song.paused) {
     song.play();
     video.play();
@@ -59,3 +56,6 @@ song.ontimeupdate = () => {
     video.pause();
   }
 };
+
+play.addEventListener("click", () => checkPlaying(song));
+replay.addEventListener("click", () => restartSong(song));
